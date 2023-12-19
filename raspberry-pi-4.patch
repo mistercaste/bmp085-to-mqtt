@@ -1,0 +1,25 @@
+--- /install/lib/python3.9/site-packages/Adafruit_DHT/platform_detect.py
++++ /install/lib/python3.9/site-packages/Adafruit_DHT/platform_detect.py
+@@ -108,6 +108,9 @@
+     elif match.group(1) == 'BCM2837':
+         # Pi 3b+
+         return 3
++    elif match.group(1) == 'BCM2711':
++        # Pi 4
++        return 4
+     else:
+         # Something else, not a pi.
+         return None
+--- /install/lib/python3.9/site-packages/Adafruit_DHT/common.py
++++ /install/lib/python3.9/site-packages/Adafruit_DHT/common.py
+@@ -50,8 +50,8 @@
+         elif version == 2:
+             from . import Raspberry_Pi_2
+             return Raspberry_Pi_2
+-        elif version == 3:
+-            """Use Pi 2 driver even though running on Pi 3"""
++        elif version == 3 or version == 4:
++            """Use Pi 2 driver even though running on Pi 3 or Pi 4"""
+             from . import Raspberry_Pi_2
+             return Raspberry_Pi_2
+         else:
