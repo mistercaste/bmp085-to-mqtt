@@ -1,0 +1,16 @@
+*~
+
+.git/
+test/
+
+.gitignore
+LICENSE
+README.md
+
+# Eclipse
+.settings/
+.project
+
+# IntelliJ
+.idea/
+*.iml
