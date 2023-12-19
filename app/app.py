@@ -78,9 +78,9 @@ if __name__ == '__main__':
                 logging.debug(f"Publishing BMP085 data to topic - '{MQTT_TOPIC}'")
                 client.publish(MQTT_TOPIC, json.dumps(data))
             else:
-                logging.error(f"Failed to read sensor values. Check you wiring and configuration. Retrying in {SENSOR_CHECK_INTERVAL}...")
+                logging.error(f"Failed to read BMP085 sensor values. Check you wiring and configuration. Retrying in {SENSOR_CHECK_INTERVAL}...")
 
         except Exception as e:
-            logging.error(f"Something went wrong when trying to read the sensor and this shouldn't happen... Details: {e}")
+            logging.error(f"Something went wrong when trying to read the BMP085 sensor and this shouldn't happen... Details: {e}")
         finally:
             time.sleep(SENSOR_CHECK_INTERVAL)
